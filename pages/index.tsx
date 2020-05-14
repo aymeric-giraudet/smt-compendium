@@ -8,8 +8,8 @@ interface IndexProps {
 }
 
 const IndexPage: React.FC<IndexProps> = props => (
-  <div className="px-4">
-    <div className="bg-gray-700 rounded my-6 p-6">
+  <div className="px-4 lg:px-40">
+    <div className="bg-gray-700 rounded my-6 p-6 lg:my-12">
       <DemonList {...props} />
     </div>
   </div>

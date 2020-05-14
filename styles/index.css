@@ -9,4 +9,18 @@ body {
   display: block;
 }
 
+.cell {
+  @apply px-2 overflow-hidden border;
+}
+
+.cell-sm {
+  @apply hidden;
+}
+
+@screen sm {
+  .cell-sm {
+    @apply table-cell;
+  }
+}
+
 @tailwind utilities;
