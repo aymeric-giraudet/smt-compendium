@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+
+body {
+  @apply antialiased bg-black;
+}
+
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+@tailwind utilities;

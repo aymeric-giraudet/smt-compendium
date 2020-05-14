@@ -1,15 +1,29 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { GetStaticProps } from "next";
+import { DemonEntryProps } from "../components/DemonEntry";
+import demonData from "../data/smt2.json";
+import DemonList from "../components/DemonList";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+interface IndexProps {
+  demons: DemonEntryProps[];
+}
 
-export default IndexPage
+const IndexPage: React.FC<IndexProps> = props => (
+  <div className="px-4">
+    <div className="bg-gray-700 rounded my-6 p-6">
+      <DemonList {...props} />
+    </div>
+  </div>
+);
+
+export const getStaticProps: GetStaticProps = async () => {
+  const demons: DemonEntryProps[] = Object.keys(demonData).map((key) => ({
+    name: key,
+    //@ts-ignore
+    race: demonData[key].race,
+    //@ts-ignore
+    level: demonData[key].lvl
+  }));
+  return { props: { demons } };
+};
+
+export default IndexPage;
