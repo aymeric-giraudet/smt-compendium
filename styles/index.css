@@ -1,9 +1,10 @@
 @tailwind base;
-@tailwind components;
 
 body {
   @apply antialiased bg-black;
 }
+
+@tailwind components;
 
 #menu-toggle:checked + #menu {
   display: block;
